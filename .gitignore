@@ -34,3 +34,6 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+.claude
+CLAUDE.md
+aula.md
