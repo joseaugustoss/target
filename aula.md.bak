@@ -1,0 +1,865 @@
+# Aula 1 — Criando o nosso primeiro projeto com React Native e Expo
+
+Olá! Seja muito bem-vindo(a) à sua primeira aula de verdade no mundo da programação de aplicativos. 🎉
+
+Antes de mais nada, parabéns por dar esse primeiro passo. Você já sabe um pouco de **HTML**, **CSS** e **JavaScript** — isso já é muito bom, porque é como já saber andar de bicicleta antes de aprender a andar de moto: muita coisa que você já entende vai te ajudar aqui.
+
+Vamos com calma, em partes pequenas. Sem pressa.
+
+## 1. O que vamos construir nesta aula?
+
+Hoje a gente não vai construir uma tela bonita ainda. Hoje é o dia de **preparar o terreno**: organizar as ferramentas e criar a "casca" do nosso projeto, para que nas próximas aulas a gente possa começar a construir as telas do nosso app de verdade.
+
+Pense assim: antes de montar um set de Lego, você precisa abrir a caixa, separar as peças e ter uma mesa limpa para trabalhar. É exatamente isso que vamos fazer hoje.
+
+## 2. Mas o que é "React Native"?
+
+Você já deve ter usado sites feitos com **HTML e CSS** que rodam no navegador (Chrome, Firefox, etc). Um site é feito para rodar dentro de um navegador.
+
+Um **aplicativo de celular** (tipo Instagram, WhatsApp, Nubank) é diferente: ele não roda dentro de um navegador, ele roda "direto" no celular, instalado lá, com um ícone na tela inicial.
+
+O **React Native** é uma ferramenta que permite a gente escrever código parecido com o que você já conhece (parecido com JavaScript) e, no final, esse código se transforma em um **aplicativo de celular de verdade** — tanto para Android quanto para iPhone (iOS), usando o **mesmo código**!
+
+> 💡 **Analogia:** Imagine que você sabe falar português e quer se comunicar com uma pessoa que fala inglês e outra que fala espanhol. Em vez de aprender as duas línguas do zero, você usa um "tradutor mágico" que pega o que você fala em português e entrega certinho para cada um na língua dele. O React Native é um pouco esse tradutor: você escreve o código de um jeito só, e ele "traduz" para que funcione tanto no Android quanto no iPhone.
+
+## 3. E o que é o "Expo"?
+
+Criar um aplicativo de celular do zero, sem ajuda, exige configurar muuuita coisa complicada (tipo programas específicos para Android e para iPhone, certificados, configurações chatas). Isso seria como precisar construir o próprio carro antes de poder aprender a dirigir.
+
+O **Expo** é um conjunto de ferramentas que faz todo esse trabalho pesado por nós. Ele já vem com tudo organizado, prontinho, para que a gente foque só em programar o aplicativo, sem se preocupar com toda a parte complicada de configuração.
+
+> 💡 **Analogia:** É como jogar um jogo de console (tipo PlayStation ou Xbox). Você não precisa entender como o console funciona por dentro (os circuitos, os chips) para jogar. Você só aperta o botão de "ligar" e já pode jogar. O Expo é esse "console" que liga tudo para você, e te deixa livre para "jogar" (ou seja, programar).
+
+Outra coisa incrível do Expo: ele tem um aplicativo chamado **Expo Go** que você instala no seu próprio celular. Com ele, dá pra ver o app que você está criando no computador aparecendo **na hora**, em tempo real, no seu celular. Mágico, né?
+
+## 4. Passo a passo: criando o projeto no terminal
+
+O **terminal** é aquela tela "preta" (ou escura) onde a gente digita comandos de texto em vez de clicar em botões. Pode parecer assustador no começo, mas é só um jeito de "conversar" diretamente com o computador, dando ordens digitadas.
+
+> 💡 **Analogia:** Pense no terminal como um controle remoto universal. Em vez de ter um botão físico para cada função (como em uma TV cheia de botões), você digita o "comando" certo e o computador executa exatamente aquilo.
+
+### Passo 1 — Abrir o terminal
+
+Abrimos o terminal no computador (no nosso caso, dentro do editor de código, o **VS Code**, que tem um terminal embutido).
+
+### Passo 2 — Rodar o comando de criação do projeto
+
+Digitamos um comando parecido com este:
+
+```
+npx create-expo-app@latest nome-do-projeto
+```
+
+Vamos entender essa frase estranha pedaço por pedaço:
+
+- **`npx`**: é uma ferramenta que busca um "programinha" pronto na internet e executa ele uma única vez, sem precisar instalar ele para sempre no seu computador. É como pedir um aplicativo "emprestado" só para usar uma vez.
+- **`create-expo-app`**: é o nome do "programinha" que sabe criar um projeto Expo novo, já organizado, do zero.
+- **`@latest`**: significa "me dê a versão mais recente desse programinha", igual quando você atualiza um app no celular para ter as novidades mais novas.
+- **`nome-do-projeto`**: é o nome que você escolhe para o seu projeto (no nosso caso, o projeto se chama **`target`**).
+
+### Passo 3 — Escolher um template em branco
+
+Durante a criação, o Expo pergunta: "Que tipo de projeto inicial você quer?". Existem vários **templates** (modelos prontos) — alguns já vêm com telas de exemplo, menus, botões, etc.
+
+Nós escolhemos o template **"blank" (em branco)**.
+
+> 💡 **Analogia:** É como quando você compra uma folha de papel. Você pode comprar uma já com desenhos prontos (tipo um livro de colorir) ou uma **folha completamente branca**, para desenhar exatamente o que você quiser, do seu próprio jeito. Escolhemos a folha branca, porque queremos aprender a desenhar (programar) tudo com as nossas próprias mãos, sem nada pronto "no caminho".
+
+## 5. O que apareceu depois da criação? Conhecendo os arquivos
+
+Depois que o comando termina, o Expo cria uma pasta cheia de arquivos. Os mais importantes para começar são:
+
+- **`App.js`** (ou depois `App.tsx`): é o "coração" do aplicativo. É o primeiro arquivo que roda quando o app abre. Pense nele como a página `index.html` de um site: é o ponto de partida.
+- **`package.json`**: é como uma "ficha de identidade" do projeto. Nela ficam guardadas informações como o nome do projeto e quais "ferramentas extras" (chamadas de **bibliotecas** ou **dependências**) o projeto está usando.
+- **`node_modules`**: é uma pasta enorme, criada automaticamente, onde ficam guardadas todas essas "ferramentas extras" que o projeto baixou da internet para funcionar. Você nunca edita nada dentro dela manualmente.
+
+## 6. Transformando o arquivo principal em `.tsx`
+
+Por padrão, o arquivo principal se chama `App.js`. Nós renomeamos ele para **`App.tsx`**.
+
+Só essa mudança de nome (de `.js` para `.tsx`) já é suficiente para o projeto inteiro passar a usar **TypeScript** automaticamente, sem precisarmos instalar nada extra (o próprio Expo percebe a mudança e configura tudo sozinho).
+
+### Mas o que é esse tal de "TypeScript"?
+
+Você já conhece o **JavaScript**: é a linguagem que faz um site "ter vida", reagir a cliques, mostrar mensagens, etc.
+
+O **TypeScript** é basicamente o **JavaScript com superpoderes de checagem**. Ele permite que a gente diga, por exemplo: "esta variável aqui só pode guardar números" ou "esta função só pode receber um texto". Se você tentar usar errado, o TypeScript te avisa **antes mesmo de rodar o programa**, mostrando um aviso de erro no próprio editor.
+
+> 💡 **Analogia:** Imagine um jogo de futebol com um árbitro super atento, que avisa um erro na hora, antes mesmo da jogada terminar, em vez de só apontar o erro depois que o gol já foi perdido. O TypeScript é esse árbitro: ele aponta os erros **enquanto você ainda está escrevendo o código**, evitando que esses erros cheguem até o aplicativo funcionando (e quebrando) na mão do usuário.
+
+E a letra extra no fim, o **`x`** de `.tsx`, indica que, além de TypeScript, esse arquivo também pode conter **JSX** — que é aquele jeito de escrever "como se fosse HTML" dentro do JavaScript, para desenhar as telas. Você já vai ver isso na prática nas próximas aulas, e vai notar que lembra bastante HTML, só que dentro do código JavaScript/TypeScript.
+
+## 7. Configurando "atalhos" de importação no `tsconfig.json`
+
+O arquivo **`tsconfig.json`** é onde ficam as configurações do TypeScript no nosso projeto. Hoje a gente editou uma parte específica dele, chamada **`paths`** (caminhos).
+
+Veja como ficou:
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "extends": "expo/tsconfig.base"
+}
+```
+
+Vamos entender devagar:
+
+- **`extends: "expo/tsconfig.base"`**: significa "use como base todas as configurações que o próprio Expo já recomenda", e a partir dali a gente só ajusta o que quisermos mudar. É como pegar uma receita de bolo já testada e só trocar um ingrediente.
+- **`paths`**: é onde a gente cria **atalhos** para importar arquivos.
+- **`"@/*": ["./src/*"]`**: isso diz "sempre que eu escrever `@/algumacoisa`, entenda que eu quero dizer `./src/algumacoisa`".
+
+### Por que isso é útil?
+
+Sem esse atalho, se um arquivo estivesse bem "fundo" dentro de várias pastas, a importação ficaria assim, cheia de `../../../`:
+
+```ts
+import { Botao } from '../../../components/Botao';
+```
+
+Esses `../` significam "suba uma pasta", repetidos várias vezes — fica confuso e fácil de errar.
+
+Com o atalho que configuramos, a mesma importação fica assim, **de qualquer lugar do projeto**:
+
+```ts
+import { Botao } from '@/components/Botao';
+```
+
+> 💡 **Analogia:** É como salvar um contato no seu celular. Em vez de precisar digitar o número de telefone completo toda vez (`+55 84 99999-9999`), você salva como "Mãe" e só precisa tocar em "Mãe" para ligar. O `@/` é o nosso "nome salvo" para dizer "pasta `src`", sem precisar escrever o caminho complicado todas as vezes.
+
+A pasta **`src`** (de "**source**", que significa "fonte" ou "origem" em inglês) é, por convenção, onde a maioria dos programadores guarda o código-fonte principal do projeto (telas, componentes, funções, etc.), separado de arquivos de configuração.
+
+Você está indo muito bem. O primeiro passo, que é o mais cheio de palavras novas, você já deu. 🚀
+
+# Aula 2 — Organizando cores e ícones do projeto
+
+Olá de novo! 👋 Na aula passada a gente preparou "a mesa de trabalho" (criamos o projeto). Hoje vamos guardar dois tipos de material que toda casa (ou todo aplicativo) precisa ter bem organizados: as **cores** que vamos usar e os **ícones** do aplicativo.
+
+Vamos por partes, como sempre.
+
+## 1. Por que separar as cores em um arquivo só?
+
+Imagine que você está organizando uma caixa de lápis de cor para um trabalho da escola. Em vez de sair comprando um lápis "azul-clarinho-tal" cada vez que precisar, você organiza uma caixinha só com os azuis: azul bem clarinho, azul médio, azul escuro... Assim, sempre que precisar de "um azul", você já sabe exatamente onde procurar, e todos os seus desenhos usam os **mesmos tons de azul**, sem ficar uma coisa torta com cada azul diferente.
+
+É exatamente isso que fizemos hoje: criamos um arquivo chamado **`colors.ts`**, dentro da pasta `src/theme` (lembra do `@/` que configuramos na aula 1? `theme` significa "tema" — é a pasta onde guardamos as decisões visuais do app, tipo cores).
+
+> 💡 **Por que isso é importante?** Se cada tela do app escolhesse uma cor de azul "no olho", o aplicativo ficaria com vários tons de azul, parecendo desorganizado. Centralizando as cores em um único arquivo, toda vez que alguém quiser usar "o azul do app", vai usar **exatamente o mesmo azul**, em todas as telas. Isso se chama **padronização** — deixar tudo seguindo o mesmo padrão, como um uniforme de time de futebol: todo mundo veste a mesma cor, sem confusão.
+
+## 2. O que é um "token" de cor?
+
+Você vai ouvir bastante essa palavra: **token**.
+
+Um **token** aqui é só um **nome** que a gente dá para um valor, para não precisar usar o valor "cru" (no nosso caso, o código da cor) toda vez.
+
+> 💡 **Analogia:** Pense em uma ficha de jogo de tabuleiro (token = ficha, peça). Em vez de cada jogador carregar uma pedra de verdade, todo mundo usa uma "ficha" que representa aquilo. Da mesma forma, em vez de escrever o código de uma cor (algo tipo `#3d44cd`, que não diz nada por si só) em vários lugares do código, a gente cria um "nome-ficha" para ela, como `colors.blue[500]`, que é bem mais fácil de entender e de lembrar.
+
+Olha como ficou o nosso arquivo `src/theme/colors.ts`:
+
+```ts
+export const colors = {
+  blue: {
+    100: "#d8ddfc",
+    200: "#b1bbf9",
+    300: "#8DA2EB",
+    400: "#53569C",
+    500: "#3d44cd",
+    800: "#1F2267",
+  },
+  gray: {
+    100: "#f1f5f5",
+    200: "#e9ecef",
+    300: "#dee2e6",
+    400: "#ced4da",
+    500: "#6c757d",
+    600: "#767680",
+  },
+  green: {
+    500: "#4AE124",
+  },
+  red: {
+    400: "#FF6767",
+  },
+  white: "#ffffff",
+  black: "#000000",
+};
+```
+
+Vamos entender pedaço por pedaço:
+
+- **`export const colors = { ... }`**: estamos criando uma "caixa" chamada `colors` e deixando ela disponível para ser usada (`export`, ou seja, "exportada") em qualquer outro arquivo do projeto.
+- Dentro dessa caixa, temos **gavetas** com nomes: `blue` (azul), `gray` (cinza), `green` (verde), `red` (vermelho), além de `white` (branco) e `black` (preto) que são únicos, sem variação.
+- Dentro de cada gaveta de cor (`blue`, `gray`...), temos **números**: `100`, `200`, `300`... até `800`.
+
+### O que significam esses números de 100 a 800?
+
+Esses números representam a **intensidade** (o quão clara ou escura) aquela cor é.
+
+> 💡 **Analogia:** Pense em um controle de brilho de tela, ou no volume de um som. `100` é como "bem fraquinho, bem clarinho" e `800` é "bem forte, bem escuro/intenso". Olhando para o nosso azul:
+> - `blue[100]` → `#d8ddfc` → um azul bem **clarinho**, quase lavanda.
+> - `blue[500]` → `#3d44cd` → um azul **forte**, no meio do caminho.
+> - `blue[800]` → `#1F2267` → um azul **bem escuro**, quase marinho.
+
+Repare que nem toda cor tem todas as intensidades (de 100 a 800). O `green`, por exemplo, só tem o `500`. Isso é normal: a gente só cria as intensidades que realmente vamos **usar** no aplicativo. Não tem motivo para criar 8 tons de verde se o app só vai usar um tom de verde (por exemplo, para indicar "dinheiro entrando" ou "sucesso").
+
+## 3. Usando as cores dentro do código
+
+Para usar essa "caixa de cores" em outro arquivo, a gente importa ela, igual aprendemos na aula passada com aquele atalho `@/`:
+
+```ts
+import { colors } from "@/theme/colors";
+```
+
+E depois usamos assim, por exemplo:
+
+```ts
+backgroundColor: colors.white,
+```
+
+Aqui estamos dizendo: "a cor de fundo (`backgroundColor`) deste elemento deve ser o branco (`white`) que está guardado na nossa caixa de cores". Foi exatamente assim que usamos no nosso arquivo `App.tsx`, na propriedade `backgroundColor` do `container`.
+
+> 💡 **Por que não escrever direto `backgroundColor: "#ffffff"`?** Porque, se um dia a equipe de design decidir trocar o branco por um branco levemente diferente, a gente só precisa mudar **uma linha**, dentro do `colors.ts`, e a mudança se aplica automaticamente em **todo o aplicativo**, em todas as telas que usam `colors.white`. Sem o token, a gente teria que caçar e trocar `"#ffffff"` em um monte de arquivos diferentes, um por um — bem mais arriscado e cansativo.
+
+## 4. Baixando os ícones do aplicativo
+
+A segunda coisa que fizemos hoje foi baixar dois arquivos de imagem e colocá-los dentro de uma pasta `assets`:
+
+- **`ios-icon.png`** → o ícone que vai aparecer na tela inicial de um **iPhone**, quando o app estiver instalado.
+- **`adaptive-icon.png`** → um ícone especial pensado para o **Android**.
+
+> 💡 **Atenção ao local da pasta:** no começo guardamos esses arquivos dentro de `src/assets`. Depois, na Aula 3, movemos eles para uma pasta `assets` na **raiz do projeto** (fora do `src`). Por que isso? Porque o `app.json` — o arquivo de configuração do projeto, que fica na raiz — é quem aponta para esses ícones, e por convenção do Expo os arquivos usados pela configuração nativa do app (ícones, splash) ficam numa pasta `assets` na raiz, separada do `src` (que guarda só código/telas).
+
+### O que é a pasta `assets`?
+
+**Assets** é uma palavra em inglês que significa, mais ou menos, "recursos" ou "bens" — no nosso contexto, são os **arquivos estáticos** do projeto: imagens, ícones, fontes, sons. Coisas que não são "código" em si, mas que o código vai usar.
+
+> 💡 **Analogia:** Pense em um álbum de figurinhas. As **figurinhas** (imagens, ícones) ficam guardadas separadas, numa pasta própria, e o **álbum** (o nosso código) só indica "cole a figurinha número 5 aqui". A pasta `assets` é o nosso "estojo de figurinhas": um lugar único e organizado para guardar tudo o que é imagem.
+
+### Por que existem ícones diferentes para iOS e Android?
+
+Cada sistema (iOS, da Apple, e Android, do Google) tem suas próprias regras de design para como os ícones de aplicativos devem se comportar na tela inicial do celular.
+
+> 💡 **Analogia:** É como dois times de futebol diferentes, cada um com seu próprio uniforme oficial. Mesmo que o jogador (o nosso aplicativo) seja o mesmo, ao "vestir a camisa" de cada time (cada sistema), ele segue um padrão visual diferente. O **iOS** geralmente espera um ícone já com os cantos arredondados prontos do jeito que ele gosta. Já o **Android** usa o conceito de **"ícone adaptativo"** (daí o nome `adaptive-icon`): o sistema pode recortar esse ícone em formatos diferentes (círculo, quadrado com cantos arredondados, "gotinha"...) dependendo da preferência de cada fabricante de celular ou do gosto do usuário. Por isso preparamos um arquivo pensado especialmente para se adaptar a esses formatos.
+
+Esses ícones não aparecem ainda dentro das telas do nosso app em funcionamento — eles serão usados mais adiante, quando configurarmos o aplicativo para ser **instalado de fato** no celular (e aí, sim, vamos ver o ícone aparecendo na tela inicial, junto dos outros apps).
+
+Mandou bem hoje! Organização no começo do projeto economiza muita dor de cabeça depois. 🎯
+
+# Aula 3 — Configurando o `app.json` e gerando o ícone de verdade
+
+Na aula passada a gente só **baixou** as imagens dos ícones e guardou elas numa pasta. Hoje a gente vai usar essas imagens de fato, configurando o arquivo `app.json` para que o ícone apareça na tela inicial do celular.
+
+## 1. O que é o `app.json`?
+
+O `app.json` é a "carteira de identidade" do nosso aplicativo, só que para o **Expo** (diferente do `package.json`, que é a identidade do projeto Node em geral). É nele que a gente configura coisas como: nome do app, versão, identificador único do app, e — o que nos interessa hoje — qual imagem usar como **ícone**.
+
+Veja como ficou o nosso, depois dos ajustes de hoje:
+
+```json
+{
+  "expo": {
+    "name": "target",
+    "slug": "target",
+    "version": "1.0.0",
+    "icon": "./assets/ios-icon.png",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "android": {
+      "package": "com.joseaugustoss.target",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#3d44cd"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.joseaugustoss.target",
+      "icon": "./assets/ios-icon.png"
+    }
+  }
+}
+```
+
+Vamos entender cada chave nova, com calma:
+
+- **`icon`**: é o ícone "padrão" do app, usado como referência geral (por exemplo, em telas de carregamento do próprio Expo). Apontamos para `./assets/ios-icon.png`, a mesma imagem de 1024×1024 que usamos no iOS.
+- **`orientation: "portrait"`**: diz para o app "fique sempre na posição em pé (retrato), não deixe a tela virar de lado (paisagem)". É parecido com travar a rotação da tela no seu celular.
+- **`userInterfaceStyle: "automatic"`**: diz para o app seguir automaticamente o tema do sistema — se o celular do usuário estiver no modo claro, o app usa cores claras; se estiver no modo escuro, o app se adapta. Igual o WhatsApp faz quando você muda o tema do seu celular.
+- **`android.adaptiveIcon`**: configura o ícone adaptativo do Android que já vimos na Aula 2 — `foregroundImage` é o desenho que fica "na frente" (a imagem do ícone em si) e `backgroundColor` é a cor que fica atrás dele, preenchendo os espaços onde a imagem não cobre.
+- **`ios.icon`**: o ícone usado especificamente quando o app é compilado para iPhone.
+
+> 💡 **Por que `icon` e `ios.icon` apontam para o mesmo arquivo?** Porque ainda não temos um ícone genérico separado — usamos o `ios-icon.png` (que já está na proporção certa, 1024×1024) para os dois lugares. Mais adiante, se quiser, dá para criar um ícone "padrão" diferente do ícone específico do iOS.
+
+## 2. Por que `userInterfaceStyle` não funcionava no começo?
+
+Quando configuramos o `userInterfaceStyle`, o Expo nos avisou: essa funcionalidade só funciona se o projeto tiver instalada uma biblioteca chamada **`expo-system-ui`**. Sem ela, o app simplesmente ignora essa configuração.
+
+Resolvemos assim:
+
+```
+npx expo install expo-system-ui
+```
+
+> 💡 **Por que `npx expo install` em vez de `npm install`?** O comando `expo install` é uma versão "mais inteligente" do `npm install`: ele já sabe qual é a **versão certa** daquela biblioteca para combinar com a versão do Expo que estamos usando no projeto, evitando incompatibilidades. É como pedir a peça de reposição certa para o modelo exato do seu carro, em vez de pegar "qualquer peça parecida".
+
+## 3. Removendo uma configuração que ficou obsoleta: `edgeToEdgeEnabled`
+
+No `android`, tínhamos colocado `"edgeToEdgeEnabled": true`. Essa configuração dizia para o conteúdo do app "ocupar a tela toda", inclusive por baixo da barra de status e da barra de navegação do Android (aquele efeito moderno onde o app "vaza" para debaixo dessas barras).
+
+Só que, ao gerar o projeto, o Expo avisou que essa opção **não existe mais para configurar**: a partir do Android 16, esse comportamento passou a ser **obrigatório para todo app**, então não faz mais sentido escolher ativar ou desativar — já vem sempre ativado. Por isso removemos essa linha do `app.json`.
+
+> 💡 **Analogia:** É como uma lei de trânsito que antes era "opcional usar cinto de segurança" e depois passou a ser **obrigatória para todo mundo**. Não faz mais sentido ter uma configuração perguntando "quer usar cinto?" — já vem sempre ativado, sem escolha.
+
+## 4. O que é o `prebuild` e por que precisamos rodar ele?
+
+Aqui está o ponto mais importante da aula: **só editar o `app.json` não é suficiente** para o ícone aparecer no celular.
+
+Nosso projeto já tinha as pastas `android` e `ios` geradas (são os projetos "nativos" de verdade, escritos em Kotlin/Java e Swift/Objective-C, que o Expo gera por baixo dos panos). O `app.json` é só a "receita" — para essa receita virar o "bolo" (os arquivos nativos reais, incluindo os ícones em vários tamanhos), é preciso rodar:
+
+```
+npx expo prebuild --clean
+```
+
+> 💡 **Analogia:** Pense no `app.json` como a planta de uma casa (o desenho, o projeto no papel) e nas pastas `android`/`ios` como a casa **já construída**. Se você mudar a planta no papel (mudar o `app.json`), a casa que já está de pé não muda sozinha — alguém precisa pegar essa planta nova e **reconstruir** a parte que mudou. O `expo prebuild --clean` é esse "pedreiro": ele apaga as pastas `android` e `ios` antigas e constrói elas de novo, do zero, seguindo exatamente o que está escrito no `app.json` agora.
+
+O `--clean` garante que tudo seja gerado novinho, sem sobras de configurações antigas misturadas com as novas.
+
+Depois de rodar esse comando, conseguimos confirmar que os ícones foram realmente gerados, olhando dentro de:
+
+```
+android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp
+```
+
+Esse é o ícone do app já convertido para o formato e tamanho que o Android espera (no caso, 192×192 pixels, recortado a partir da nossa imagem original de 1024×1024).
+
+## 5. Por que o ícone não apareceu na tela do celular mesmo depois disso?
+
+Mesmo gerando os arquivos certos dentro de `android/`, se o app **já estava instalado antes** no celular ou emulador, a tela inicial pode continuar mostrando o ícone **antigo**. Isso acontece porque o sistema Android "guarda na memória" o ícone de um app já instalado, e não fica verificando o tempo todo se o ícone mudou.
+
+Para resolver, é preciso **reinstalar o app de verdade**, não só recarregar o código (aquele "reload" rápido que usamos no dia a dia). O comando que faz isso é:
+
+```
+npx expo run:android
+```
+
+> 💡 **Analogia:** É como trocar a capa de um livro físico que já está na sua estante. Só porque a editora mandou um arquivo novo da capa, o livro que já está na sua casa não troca de capa sozinho — você precisa comprar (instalar) o livro de novo, com a capa nova impressa nele. Reinstalar o app é a forma de "imprimir a capa nova" no celular.
+
+## Resumindo o fluxo de hoje
+
+1. Editamos o `app.json` para apontar para os ícones e configurar `orientation`/`userInterfaceStyle`.
+2. Instalamos a biblioteca que faltava (`expo-system-ui`) para o `userInterfaceStyle` funcionar.
+3. Removemos uma configuração (`edgeToEdgeEnabled`) que ficou obsoleta na versão atual do Android.
+4. Rodamos `npx expo prebuild --clean` para que essas mudanças no "papel" (`app.json`) virassem arquivos de verdade dentro de `android/` e `ios/`.
+5. Entendemos que, para ver o resultado na tela inicial do celular, é preciso **reinstalar** o app (`npx expo run:android`), e não só recarregar o código.
+
+Guarde bem essa ideia: **`app.json` configura, `prebuild` constrói, `run` instala**. Esses três passos vão se repetir bastante conforme o projeto crescer. 🛠️
+
+# Aula 4 — Navegação com Expo Router (navegação baseada em arquivos)
+
+Até agora nosso app só tinha **uma única tela**. Mas todo aplicativo de verdade tem várias telas, e o usuário precisa conseguir "andar" entre elas (por exemplo, sair da Home e entrar na tela de uma Meta específica, como vimos no print do app). Hoje a gente instala a ferramenta que cuida disso: o **Expo Router**.
+
+## 1. O que é "navegação" em um aplicativo?
+
+Você já sabe o que é navegar em um **site**: você clica em um link e o navegador troca a página, mudando inclusive o endereço lá na barra de URL (tipo `meusite.com/sobre`).
+
+Em um aplicativo de celular é parecido: existem várias **telas**, e precisamos de uma ferramenta que controle "qual tela está visível agora" e "como eu volto para a tela anterior" (lembra do botão de voltar, ou aquele gesto de arrastar da borda?). Essa ferramenta é o que chamamos de **navegação**.
+
+> 💡 **Analogia:** Pense num livro de "escolha sua própria aventura". Você está numa página, e cada link te manda para uma página diferente do livro, e às vezes você quer voltar para a página anterior para escolher outro caminho. A navegação do app é o "índice" que sabe gerenciar essas idas e vindas entre páginas (telas).
+
+## 2. O que é o Expo Router, e por que ele é "baseado em arquivos"?
+
+Existem várias formas de configurar a navegação em React Native. A forma que escolhemos se chama **Expo Router**, e a característica mais importante dela é ser **baseada em arquivos** (em inglês, *file-based routing*).
+
+Isso quer dizer: **o nome e o lugar onde você salva o arquivo já definem automaticamente o caminho (rota) daquela tela**, sem você precisar escrever uma lista configurando "essa tela é a Home, aquela é o Perfil...". O próprio Expo Router olha a pasta `app` (no nosso projeto, dentro de `src/app`, por causa do atalho que configuramos) e cria as rotas sozinho.
+
+> 💡 **Analogia com o que você já conhece:** Se você já mexeu em HTML puro, lembra que cada arquivo `.html` dentro de uma pasta de um site se tornava uma página acessível por aquele caminho (`sobre.html` → `site.com/sobre.html`)? O Expo Router funciona numa lógica bem parecida: cada arquivo dentro da pasta `app` se torna uma "página" (tela) do aplicativo, só que ele organiza isso de um jeito ainda mais automático.
+
+Esse é o motivo de dizer que a navegação por arquivos "se parece com a estrutura de rotas da web": você está acostumado a pensar em "endereços" de página (como `/sobre`, `/contato`); aqui, é a mesma ideia, só que pensando em telas de app em vez de páginas de navegador.
+
+## 3. Instalando as dependências necessárias
+
+Para usar o Expo Router, instalamos um grupo de bibliotecas com o comando:
+
+```
+npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
+```
+
+Vamos entender rapidinho o papel de cada uma (sem se preocupar em decorar agora, isso vem com a prática):
+
+- **`expo-router`**: a estrela da aula — é quem lê os arquivos da pasta `app` e transforma eles em rotas/telas navegáveis.
+- **`react-native-screens`** e **`react-native-safe-area-context`**: ferramentas de apoio que o Expo Router usa "por debaixo dos panos" para desenhar as telas de forma otimizada e respeitando os espaços seguros da tela (tipo aquele "entalhe" de câmera em alguns celulares, ou a faixa inferior de gestos).
+- **`expo-linking`**: ajuda o app a entender **links** (por exemplo, abrir o app numa tela específica a partir de um link, parecido com quando você clica num link e ele abre direto o Instagram numa publicação específica).
+- **`expo-constants`**: dá acesso a informações do próprio app (como configurações do `app.json`) dentro do código.
+
+> 💡 **Lembrete da Aula 3:** Por que `npx expo install` em vez de `npm install`? Porque ele já escolhe a **versão certa** de cada biblioteca, compatível com a versão do Expo do nosso projeto, evitando combinações que dão conflito.
+
+## 4. Avisando o projeto que o "ponto de entrada" mudou
+
+No `package.json`, existe uma chave chamada **`main`**, que diz "qual arquivo deve ser executado primeiro quando o app abre" — é literalmente a "porta de entrada" do projeto.
+
+Antes, ela apontava direto para o nosso `App.tsx`. Agora, trocamos para:
+
+```json
+"main": "expo-router/entry"
+```
+
+Isso diz: "a partir de agora, não é mais o `App.tsx` que decide o que aparece na tela — é o **Expo Router** que assume esse controle, e ele mesmo vai descobrir, olhando a pasta `app`, qual tela deve aparecer primeiro".
+
+> 💡 **Analogia:** É como trocar o porteiro de um prédio. Antes, um porteiro específico (`App.tsx`) decidia para onde cada visitante ia. Agora, colocamos um porteiro novo, mais esperto (`expo-router/entry`), que sabe ler uma planta do prédio (a pasta `app`) e direcionar automaticamente cada visitante para a sala certa.
+
+## 5. Configurando o plugin no `app.json`
+
+Também precisamos avisar o Expo, no `app.json`, que o projeto vai usar esse "porteiro novo". Adicionamos isso na lista de `plugins`:
+
+```json
+"plugins": [
+  "expo-router",
+  "expo-status-bar"
+]
+```
+
+Um **plugin**, no Expo, é como um "adesivo de personalização": ele diz para o Expo "quando você for montar (fazer o `prebuild`) os projetos nativos do Android e do iOS, lembre de configurar essas peças extras também", sem a gente precisar editar os arquivos nativos na mão.
+
+## 6. Criando a primeira tela: `src/app/index.tsx`
+
+Aqui está a parte mais interessante: criamos uma pasta chamada **`app`** dentro de `src` (ou seja, `src/app`), e dentro dela um arquivo chamado **`index.tsx`**:
+
+```tsx
+import { Text, View } from "react-native";
+
+export default function Index() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Ola, Expo Router 😁</Text>
+    </View>
+  );
+}
+```
+
+Repare em dois detalhes super importantes, que são justamente a "regra do jogo" do Expo Router:
+
+1. **O nome do arquivo é `index.tsx`**: assim como em HTML o arquivo `index.html` é a página principal de uma pasta (a que abre quando você acessa só o endereço da pasta, sem digitar nome de arquivo), aqui o `index.tsx` dentro de `app` é a **tela inicial** do aplicativo — a primeira coisa que o usuário vê ao abrir o app.
+2. **O componente é exportado com `export default`**: essa é a "regra" que o Expo Router exige. Ele escaneia a pasta `app`, e **todo arquivo que tiver um `export default`** (uma exportação "padrão", a principal daquele arquivo) é automaticamente transformado em uma rota/tela. Se você criasse, por exemplo, `src/app/perfil.tsx` com um `export default`, o Expo Router criaria sozinho uma rota chamada `/perfil`, sem você precisar registrar isso em nenhuma lista separada.
+
+> 💡 **Analogia final:** É exatamente como aquela ideia de pasta de site que você já conhece: cada arquivo novo dentro da pasta certa já "vira" uma página sozinho, sem precisar avisar ninguém. O Expo Router só trouxe essa mesma lógica simples e familiar da web para dentro do mundo dos aplicativos de celular.
+
+# Aula 5 — Criando uma segunda rota e navegando entre telas
+
+Na aula passada criamos só a tela inicial (`index.tsx`). Hoje a gente cria uma **segunda tela** de verdade e aprende como fazer o usuário "andar" de uma tela para a outra, apertando um botão.
+
+## 1. Criando a tela de "Target" (metas)
+
+Criamos uma nova pasta dentro de `src/app`, chamada **`Target`**, e dentro dela um arquivo **`index.tsx`** (o caminho final é `src/app/Target/index.tsx`):
+
+```tsx
+import { router } from "expo-router";
+import { Button, Text, View } from "react-native";
+
+export default function Target() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text style={{ fontSize: 28 }}>Target</Text>
+      <Button title="Voltar" onPress={() => router.back()} />
+    </View>
+  );
+}
+```
+
+Como vimos na Aula 4, o Expo Router olha a pasta `app` e já entende, sozinho, que esse arquivo é uma rota nova. Não precisamos escrever em **nenhum lugar** algo do tipo "essa tela se chama Target e fica nesse caminho" — basta o arquivo existir, com um `export default`, dentro da pasta certa.
+
+> 💡 **Por que uma pasta `Target` com um `index.tsx` dentro, em vez de um arquivo `target.tsx` direto?** As duas formas funcionam e geram a mesma rota (`/Target`). Usar uma **pasta** é útil quando, mais para frente, aquela tela for crescer e precisar de outros arquivos auxiliares (como um componente específico só daquela tela) — assim, tudo relacionado a "Target" já fica organizado dentro da própria pasta `Target`, em vez de espalhado solto dentro de `app`.
+
+## 2. A convenção de nomes: componente com letra maiúscula, rota em minúsculo
+
+Você deve ter notado uma diferença entre o **nome do componente** dentro do código e o **nome da rota** (o "endereço" da tela):
+
+- O **componente** React se chama `Target`, com **letra maiúscula** no início — `function Target() { ... }`. Essa é uma convenção (um costume seguido pela comunidade) do mundo React: nomes de componentes sempre começam com letra maiúscula, para o React conseguir diferenciar "isto é um componente" de "isto é uma tag HTML normal" (tipo `<View>` vs `<view>`).
+- A **rota** (o caminho usado para navegar), por convenção, é escrita em **minúsculo** — é assim que costumamos ver endereços na web também (você nunca viu um site `MeuSite.com/SOBRE`, certo? Geralmente é tudo minúsculo).
+
+> 💡 **Analogia:** Pense no nome de uma pessoa em um crachá de identificação (`Target`, com inicial maiúscula, é o "nome próprio" do componente) e o nome de usuário dela num sistema de login (que geralmente vem todo em minúsculo, tipo `joaosilva`). São duas formas diferentes de "chamar a mesma coisa", cada uma seguindo a etiqueta certa do seu contexto.
+
+No nosso projeto, como a pasta foi criada com a letra maiúscula (`Target`), a rota gerada também ficou `/Target`, com maiúscula — é importante saber que o nome da rota **segue exatamente** o nome do arquivo/pasta, então vale sempre prestar atenção em como você nomeia as coisas dentro de `app`.
+
+## 3. Navegando de uma tela para outra com o `router`
+
+Para fazer a "viagem" entre telas, o Expo Router nos dá um objeto chamado **`router`**, que importamos assim:
+
+```ts
+import { router } from "expo-router";
+```
+
+### Indo para a frente: `router.navigate(...)`
+
+Na tela inicial (`src/app/index.tsx`), adicionamos um botão:
+
+```tsx
+import { router } from "expo-router";
+import { Button, Text, View } from "react-native";
+
+export default function Index() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Ola, Expo Router 😁</Text>
+      <Button title="target" onPress={() => router.navigate("/Target")} />
+    </View>
+  );
+}
+```
+
+O componente **`Button`** já vem pronto dentro do React Native — ele desenha um botão clicável na tela, parecido com a tag `<button>` do HTML. A propriedade **`onPress`** é o "evento de clique" dele (no celular não chamamos de "clicar", e sim de "tocar/pressionar" — daí o nome `onPress`, parecido com o `onClick` que você já deve ter visto em JavaScript no navegador).
+
+Quando o botão é pressionado, chamamos:
+
+```ts
+router.navigate("/Target")
+```
+
+Isso diz: "**navegue** para a rota cujo endereço é `/Target`". Repare que o texto `"/Target"` é exatamente o caminho gerado a partir da nossa pasta `Target` dentro de `app`.
+
+> 💡 **Analogia:** É exatamente como clicar num link `<a href="/sobre">` em um site, só que em vez de um link de texto sublinhado, usamos um botão. O `router.navigate("/Target")` é o nosso "link" apontando para o endereço daquela tela específica.
+
+### Voltando: `router.back()`
+
+Já na tela `Target`, colocamos outro botão:
+
+```tsx
+<Button title="Voltar" onPress={() => router.back()} />
+```
+
+O método **`router.back()`** diz: "volte para a tela anterior", exatamente como o botão de voltar do navegador, ou o gesto de "voltar" do próprio celular. O Expo Router guarda, por baixo dos panos, um **histórico** de quais telas você já visitou (parecido com o histórico de navegação do Chrome), e o `back()` simplesmente volta um passo nesse histórico.
+
+## 4. Por que isso é tão prático?
+
+Resumindo a "mágica" de hoje: para ter uma tela nova, navegável, completa, bastou:
+
+1. Criar um arquivo (com `export default`) dentro da pasta `app`.
+2. Usar `router.navigate("/caminho")` para ir até ela.
+
+Não existe nenhum arquivo de configuração extra tipo "lista de todas as rotas do app" para manter atualizado manualmente. O próprio sistema de arquivos do projeto **é** o mapa de navegação — exatamente a ideia de "rotas baseadas em arquivos" que vimos na Aula 4, agora colocada em prática.
+
+# Aula 6 — Rotas com parâmetros: `[id].tsx`
+
+Nas últimas aulas, toda rota que criamos tinha um endereço **fixo**, sempre igual: `/Target`. Mas pense no app de metas que vimos no print: cada transação tem um **número (id) diferente** — não dá para ter uma tela só para a transação "123" e outra só para a "456"; seria um trabalho infinito. Hoje a gente resolve isso com **rotas dinâmicas**, que aceitam um "espaço em branco" no endereço, preenchido na hora.
+
+## 1. O problema: um id diferente para cada transação
+
+No nosso `index.tsx`, adicionamos um segundo botão:
+
+```tsx
+<Button
+  title="Transação"
+  onPress={() => router.navigate("/transaction/123")}
+/>
+```
+
+Esse botão navega para `/transaction/123`. Mas, se a transação fosse outra, o caminho poderia ser `/transaction/456`, `/transaction/789`, e assim por diante — o número muda, mas a **tela usada para mostrar** sempre seria a mesma (uma tela de "detalhes da transação"). Não faz sentido criar um arquivo `123.tsx`, outro `456.tsx`... seria igual desenhar uma folha de figurinha nova para cada número que aparecer, o que nunca teria fim.
+
+## 2. A solução: nome de arquivo entre colchetes — `[id].tsx`
+
+Criamos a pasta **`transaction`** dentro de `src/app`, e dentro dela um arquivo chamado **`[id].tsx`** (caminho completo: `src/app/transaction/[id].tsx`).
+
+> 💡 **O que significam os colchetes `[ ]` no nome do arquivo?** É a forma que o Expo Router usa para dizer "esta parte do endereço é **variável**, um espaço reservado, não um nome fixo". Tudo o que aparecer naquela posição do caminho (`123`, `456`, qualquer coisa) vai "cair" dentro desse arquivo, e o nome que está dentro dos colchetes (`id`) é o **nome que damos a essa variável**, para conseguirmos acessar o valor depois, dentro do código.
+
+> 💡 **Analogia:** Pense num formulário de papel, tipo um crachá de evento, que já vem impresso assim: "Olá, meu nome é **_______**". O texto fixo ("Olá, meu nome é") é a parte fixa da rota (`/transaction/`), e o espaço em branco para preencher à mão é o `[id]` — cada pessoa (cada transação) escreve um nome diferente naquele espaço, mas o crachá (o arquivo, a tela) usado é sempre o mesmo modelo.
+
+Assim, tanto `/transaction/123` quanto `/transaction/456` ou `/transaction/qualquercoisa` vão abrir esse **mesmo arquivo** `[id].tsx`, cada um entregando um valor diferente para a variável `id`.
+
+## 3. Lendo o parâmetro com `useLocalSearchParams`
+
+Criado o arquivo, falta um passo: **descobrir, dentro do código, qual foi o valor** que veio naquele espaço reservado (o `123`, por exemplo). Para isso usamos um **hook** chamado `useLocalSearchParams`.
+
+> 💡 **O que é um "hook"?** Você ainda não tinha visto esse termo. No React (a base do React Native), um **hook** é uma função especial, que sempre começa com a palavra `use`, e que dá "superpoderes" para um componente — por exemplo, o poder de "lembrar" de alguma informação, ou, como no nosso caso, o poder de "ler informações que vieram de fora", como o pedaço variável do endereço da rota. Pense em um hook como um "acessório" que você "encaixa" no seu componente para ele ganhar uma habilidade nova, meio que nem um power-up de jogo.
+
+Veja como ficou o arquivo `src/app/transaction/[id].tsx`:
+
+```tsx
+import { router, useLocalSearchParams } from "expo-router";
+import { Button, Text, View } from "react-native";
+
+export default function Transaction() {
+  const params = useLocalSearchParams<{ id: string }>();
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text style={{ fontSize: 22 }}>ID: {params.id}</Text>
+      <Button title="Voltar" onPress={() => router.back()} />
+    </View>
+  );
+}
+```
+
+Vamos destrinchar essa linha mais importante:
+
+```ts
+const params = useLocalSearchParams<{ id: string }>();
+```
+
+- **`useLocalSearchParams<{ id: string }>()`**: chamamos o hook e, entre os sinais `< >`, avisamos ao TypeScript (lembra da Aula 1?) "o objeto que eu vou receber de volta vai ter uma propriedade chamada `id`, e ela vai ser um texto (`string`)". Isso é o TypeScript "checando" se a gente está usando o `id` certinho mais na frente, exatamente como vimos antes.
+- O resultado é guardado na variável `params`, que vira um objeto parecido com `{ id: "123" }`.
+- Depois, usamos `params.id` dentro do `<Text>`, para **mostrar** esse valor na tela: `ID: {params.id}` exibe, por exemplo, "ID: 123".
+
+> 💡 **Analogia:** É como abrir uma encomenda (a rota `/transaction/123`) e ler a etiqueta dela para saber o que tem dentro. O `useLocalSearchParams` é a sua "leitura da etiqueta": ele te devolve exatamente a informação (`id: "123"`) que veio junto com aquele pedido de navegação.
+
+## 4. O botão de voltar, de novo
+
+Igual fizemos na tela `Target` (Aula 5), colocamos um botão de voltar:
+
+```tsx
+<Button title="Voltar" onPress={() => router.back()} />
+```
+
+Esse padrão — `router.back()` para sair da tela e retornar à anterior — se repete em qualquer tela de "detalhe", já que normalmente o usuário chega numa tela assim vindo de uma lista (no caso do nosso app, viria de uma lista de transações dentro de uma meta) e precisa voltar para essa lista depois de ver os detalhes.
+
+## 5. Trocando o id "na mão", para testar
+
+Para reforçar que a mesma tela funciona para **qualquer** id, bastou trocar o número usado na navegação:
+
+```tsx
+onPress={() => router.navigate("/transaction/123")}
+```
+
+Se trocássemos esse `"123"` por `"456"`, a **mesma** tela `[id].tsx` seria aberta, só que agora mostrando "ID: 456" — sem precisar tocar em nenhuma outra linha de código. Essa é a grande vantagem das rotas dinâmicas: **uma tela, infinitos valores possíveis**, exatamente como uma tela de "detalhes de um produto" em um app de loja funciona para qualquer produto do catálogo, usando sempre o mesmo desenho de tela, só trocando os dados mostrados.
+
+# Aula 7 — Mais uma rota dinâmica: a tela "Meta em andamento" (`in-progress`)
+
+Hoje é um pouco mais curta: vamos repetir, com as próprias mãos, a mesma receita da Aula 6 (rota dinâmica com `[id]`), só que para uma tela diferente — a de uma **meta em andamento** (lembra do print da "Meta em andamento", mostrando o Apple Watch e o progresso de 25%? É essa tela que estamos preparando o caminho para construir).
+
+Repetir o padrão, sem ajuda, é a melhor forma de fixar de verdade o que a gente aprendeu. Vamos ver o que mudou.
+
+## 1. Criando a pasta e o arquivo `[id].tsx`
+
+Seguindo exatamente a mesma lógica da aula passada, criamos a pasta **`in-progress`** dentro de `src/app`, e dentro dela o arquivo **`[id].tsx`** (caminho completo: `src/app/in-progress/[id].tsx`):
+
+```tsx
+import { router, useLocalSearchParams } from "expo-router";
+import { Button, Text, View } from "react-native";
+
+export default function InProgress() {
+  const params = useLocalSearchParams<{ id: string }>();
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text style={{ fontSize: 22 }}>InProgress id: {params.id}</Text>
+      <Button title="Voltar" onPress={() => router.back()} />
+    </View>
+  );
+}
+```
+
+Note que é **a mesma estrutura** do arquivo `transaction/[id].tsx` da Aula 6:
+
+- O nome da pasta (`in-progress`) define a primeira parte do endereço.
+- O `[id].tsx` dentro dela cria o "espaço reservado" para um valor variável.
+- `useLocalSearchParams<{ id: string }>()` lê esse valor.
+- `router.back()` continua sendo o nosso jeito de voltar para a tela anterior.
+
+> 💡 **Por que o nome da pasta é `in-progress`, com hífen, e não `InProgress`?** Diferente do componente `Target` que vimos na Aula 5 (que usava maiúscula), aqui escolhemos seguir o costume mais comum da web para endereços com mais de uma palavra: tudo minúsculo, separado por hífen (`-`). Você provavelmente já viu endereços assim em sites, tipo `meusite.com/fale-com-a-gente`. Isso não muda em nada o funcionamento — é só uma questão de organização e de manter um padrão dentro do projeto.
+
+## 2. Chamando a nova rota a partir da Home
+
+Na tela inicial (`src/app/index.tsx`), adicionamos um terceiro botão:
+
+```tsx
+<Button
+  title="In Progress"
+  onPress={() => router.navigate("/in-progress/12")}
+/>
+```
+
+Ao tocar nesse botão, navegamos para `/in-progress/12`. O Expo Router entende: "a parte fixa é `in-progress`, e o `12` é o valor que deve cair dentro do `[id]`" — exatamente igual ao que aconteceu com `/transaction/123` na aula anterior.
+
+Repare também que envolvemos os três botões da Home numa `View` extra, com um pequeno ajuste de estilo:
+
+```tsx
+<View style={{ gap: 12, marginTop: 20 }}>
+  ...
+</View>
+```
+
+- **`gap: 12`**: cria um "respiro" (espaço) de 12 pontos entre cada botão, para eles não ficarem colados um no outro. É um estilo que você já deve ter usado em CSS (a propriedade `gap` existe também em Flexbox e Grid na web — aqui ela funciona de um jeito bem parecido).
+- **`marginTop: 20`**: empurra esse grupo de botões 20 pontos para baixo, afastando ele do texto "Ola, Expo Router 😁" que fica acima.
+
+## 3. Onde estamos agora: o mapa de rotas do app
+
+Com essa aula, fechamos as **rotas principais** que já existem no projeto até aqui:
+
+- **`/`** (`index.tsx`) → a tela inicial (Home), com os botões de navegação para teste.
+- **`/Target`** (`Target/index.tsx`) → a tela de criação/detalhe de uma meta.
+- **`/in-progress/:id`** (`in-progress/[id].tsx`) → a tela de uma meta específica, **em andamento**, identificada por um id.
+- **`/transaction/:id`** (`transaction/[id].tsx`) → a tela de detalhe de uma transação específica, também identificada por um id.
+
+> 💡 **Sobre a notação `:id`:** É só uma forma comum (em vários frameworks de rota, não só no Expo Router) de **representar**, em texto, "aqui existe uma parte variável chamada `id`" quando estamos descrevendo o caminho de um jeito resumido — não é algo que você escreve dentro do nome do arquivo (lá, usamos os colchetes `[id]`).
+
+Ainda são telas simples, só de teste, mas o **esqueleto de navegação** do aplicativo já está todo montado: a partir daqui, as próximas aulas vão focar em deixar cada uma dessas telas com a cara de verdade, parecida com os prints que vimos no começo do nosso projeto.
+
+# Aula 8 — O arquivo de layout: `_layout.tsx`
+
+Até agora, toda tela nova era um arquivo dentro de `app` com um `export default` — e o Expo Router transformava ele numa rota. Hoje vamos conhecer um arquivo **diferente de todos os outros**: o `_layout.tsx`.
+
+## 1. Por que `_layout.tsx` **não é** uma rota?
+
+Lembra da regra de ouro do Expo Router (Aula 4): "todo arquivo com `export default`, dentro de `app`, se torna uma tela acessível"? Pois bem — `_layout.tsx` é a **exceção** dessa regra.
+
+O Expo Router reconhece o nome `_layout` (começando com **underline**, esse tracinho embaixo: `_`) como um sinal especial: "isto não é uma página para o usuário visitar — isto é um arquivo de **configuração**, que organiza e envolve as rotas que estão ao redor dele".
+
+> 💡 **Analogia:** Pense numa moldura de quadro. A moldura não é a obra de arte em si (não é uma "rota", uma tela que o visitante vem ver de propósito), mas ela **envolve** o quadro, decide a borda, a cor ao redor, o jeito como ele é apresentado. O `_layout.tsx` é a "moldura" que envolve as telas da nossa pasta `app`.
+
+## 2. Onde criamos o nosso `_layout.tsx`
+
+Criamos o arquivo direto na raiz da pasta de rotas: `src/app/_layout.tsx`. Por estar nesse nível (o mais "alto" dentro de `app`), ele passa a envolver **todas** as rotas do projeto: a Home, a `Target`, a `transaction/[id]`, a `in-progress/[id]` — todas elas.
+
+```tsx
+import { Stack } from "expo-router";
+import { colors } from "@/theme/colors";
+
+export default function Layout() {
+  return (
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        contentStyle: { backgroundColor: colors.white },
+      }}
+    />
+  );
+}
+```
+
+## 3. O componente `Stack`: empilhando telas como num baralho
+
+O Expo Router oferece alguns "tipos de organização" prontos para colocar dentro do `_layout.tsx`. O que usamos aqui é o **`Stack`** (em inglês, "pilha" — a mesma palavra usada para uma pilha de cartas ou de pratos).
+
+A ideia do `Stack` é simples: cada vez que você navega para uma tela nova (lembra do `router.navigate(...)`?), ela é **colocada em cima** da tela anterior, como uma carta nova em cima do baralho. Quando você chama `router.back()`, a carta do topo é **retirada**, revelando a que estava embaixo — exatamente a sensação de "voltar" que sentimos ao usar o botão de voltar do celular.
+
+> 💡 **Analogia:** É como uma pilha de pratos lavados, empilhados um em cima do outro. Você só consegue tirar (ou colocar) prato pelo topo da pilha — nunca pelo meio. Cada `router.navigate()` é "colocar um prato novo em cima"; cada `router.back()` é "retirar o prato do topo".
+
+### Existe outra opção: o `Slot`
+
+Antes de usar o `Stack`, existe uma opção ainda mais simples chamada **`Slot`** (em inglês, "encaixe", "ranhura" — tipo o encaixe de uma tomada). O `Slot` simplesmente diz: "renderize aqui, neste lugar, a rota atual, sem adicionar nenhum comportamento extra de navegação (sem pilha, sem abas)". É a opção mais "crua" possível, útil quando você só quer um espaço reservado simples para a tela aparecer, sem ganhar nenhum efeito extra de transição entre telas.
+
+> 💡 **Analogia do `Slot`:** É como o encaixe genérico de uma moldura de porta-retrato digital, que só mostra a foto que você colocar, sem decidir nada sobre como uma foto troca para a outra. Já o `Stack` é como aquele álbum de fotos físico, em que cada foto nova é colada **por cima** da anterior, e você folheia (volta) revelando as de baixo.
+
+Optamos pelo `Stack` porque já queremos esse comportamento de "ir para frente" e "voltar", que estamos usando desde a Aula 5.
+
+### E o que seria o `Tabs`?
+
+Outra opção, que ainda não usamos no projeto mas vale conhecer, é o **`Tabs`** — ele organiza as rotas em **abas** fixas, geralmente na parte de baixo da tela (pense no Instagram: Home, Buscar, Reels, Perfil — cada ícone ali embaixo é uma aba). Diferente do `Stack`, nas abas você troca de uma tela para outra **sem** empilhar uma em cima da outra, e sem ganhar um botão de "voltar" — você simplesmente toca em outra aba.
+
+Mais para frente, quando o nosso app tiver uma barra de navegação fixa (tipo "Home" e "Configurações"), é o `Tabs` que vamos usar para isso — e é aí que entrarão também os **ícones**, vindos de bibliotecas como `@expo/vector-icons` (uma coleção enorme de ícones prontos, parecida com os "ícones de fonte" que você talvez já tenha usado em CSS, como o Font Awesome), para decorar cada aba.
+
+## 4. As opções de configuração do `Stack`: `screenOptions`
+
+A propriedade **`screenOptions`** define configurações que valem **para todas as telas** que estão dentro daquele `Stack` (ou seja, para o app inteiro, já que nosso `_layout.tsx` está na raiz):
+
+- **`headerShown: false`**: o `Stack`, por padrão, desenha uma **barra superior** automática em cada tela (com um título e, às vezes, um botão de voltar já pronto). Como nas nossas telas já criamos nosso próprio botão de "Voltar" manualmente (lembra dos botões nas telas `Target`, `transaction` e `in-progress`?), desligamos essa barra automática, para não ficar duplicado.
+- **`contentStyle: { backgroundColor: colors.white }`**: define que o **fundo** de toda tela, por padrão, deve ser branco — usando o token `colors.white` que criamos lá na Aula 2. Antes dessa configuração, cada tela poderia nascer com um fundo de cor diferente (dependendo do sistema); agora, garantimos que **todo o app** já nasce com a mesma cor de fundo padronizada, sem precisar repetir esse estilo em cada arquivo de tela, um por um.
+
+> 💡 **Por que isso é "lógica antes de carregar a aplicação"?** Como o `_layout.tsx` envolve todas as rotas, qualquer configuração ou verificação que colocarmos aqui (como essas opções de estilo) é aplicada **antes** de qualquer tela específica aparecer — é o primeiro código que roda, preparando o terreno (cores padrão, comportamento de navegação) para todas as telas que vêm a seguir. Esse mesmo lugar, no futuro, também poderia guardar verificações do tipo "o usuário já fez login?" antes de deixar ele ver qualquer tela do app — mas isso é assunto para mais para frente.
+
+# Aula 9 — Fontes personalizadas com Google Fonts
+
+Até agora, todo texto do nosso app usava a **fonte padrão** do sistema (a letra "de fábrica" do Android ou do iPhone). Hoje a gente troca isso, trazendo uma fonte escolhida por nós — a **Inter** — para deixar o app com a cara que a gente quer, e não a cara genérica do sistema.
+
+## 1. O que é uma "fonte", e por que escolher uma específica?
+
+Você já conhece esse conceito do CSS: a propriedade `font-family` escolhe o "estilo de letra" usado no texto (tipo Arial, Times New Roman, Roboto...). Em React Native é a mesma ideia, só que com uma diferença importante: **o celular não vem com tantas fontes prontas quanto um navegador**, então, se quisermos uma fonte específica e bonita, geralmente precisamos **baixar e carregar ela junto com o nosso app**.
+
+> 💡 **Analogia:** É como levar seu próprio microfone para cantar numa festa, em vez de usar o que já está disponível no local. O celular já vem com um "microfone padrão" (a fonte do sistema), mas se quisermos um som (visual, no caso) diferente e mais identificado com a nossa marca, trazemos o nosso próprio.
+
+## 2. O Google Fonts como "repositório" de fontes
+
+O **Google Fonts** é um site enorme, mantido pelo Google, que reúne **milhares de fontes gratuitas**, prontas para usar em sites e aplicativos. Pense nele como uma biblioteca pública gigante de letras: você navega, escolhe a que mais combina com o seu projeto, e usa sem pagar nada e sem se preocupar com direitos de uso.
+
+Escolhemos a fonte **"Inter"** — uma fonte bastante usada em aplicativos modernos, porque foi desenhada justamente para ficar **fácil de ler em telas pequenas**, como a de um celular.
+
+## 3. Instalando a fonte como uma biblioteca do projeto
+
+Diferente da web (onde às vezes você só coloca um link `<link>` apontando para o Google Fonts no HTML), no Expo a gente instala a fonte como se fosse uma **biblioteca de código**, com `npx expo install`:
+
+```
+npx expo install @expo-google-fonts/inter expo-font
+```
+
+- **`@expo-google-fonts/inter`**: é um "pacotinho" preparado especialmente pela equipe do Expo, que já vem com os arquivos da fonte Inter dentro, prontos para importar no código.
+- **`expo-font`**: é a ferramenta que sabe **carregar** esses arquivos de fonte de verdade no aplicativo, antes da gente tentar usá-los.
+
+## 4. Escolhendo as "espessuras" certas da fonte
+
+Uma mesma fonte, como a Inter, na verdade vem em **várias variações de espessura** — mais fina, média, mais grossa (negrito). No Google Fonts você pode ver essa famosa escalinha de pesos, geralmente numerada: 100 (bem fina), 400 (normal), 500 (média), 700 (negrito), 900 (bem grossa)...
+
+> 💡 **Analogia:** É como uma régua de "grossura" de um traço de lápis. Um lápis 2B desenha um traço mais fino que um 6B, mas é o mesmo "tipo" de lápis (grafite). Da mesma forma, `Inter_400Regular` e `Inter_700Bold` são duas "grossuras" diferentes da mesma fonte Inter.
+
+No nosso projeto, escolhemos importar três pesos, dentro do `_layout.tsx`:
+
+```tsx
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_700Bold,
+} from "@expo-google-fonts/inter";
+```
+
+- **`Inter_400Regular`**: o peso "normal", para textos comuns, de leitura corrida.
+- **`Inter_500Medium`**: um peso "meio-termo", um pouco mais forte que o normal — bom para destacar um pouquinho um texto, sem ser tão forte quanto negrito.
+- **`Inter_700Bold`**: o peso "negrito", para títulos e textos que precisam chamar bastante atenção.
+
+Não importamos **todos** os pesos disponíveis (seria desperdício carregar pesos que nunca vamos usar) — só os três que realmente planejamos usar no design do app, exatamente como fizemos com as intensidades das cores na Aula 2 (lembra que o `green` só tinha o tom `500`, porque era o único necessário? A lógica aqui é a mesma).
+
+## 5. Garantindo que a fonte carregue **antes** de mostrar qualquer tela
+
+Aqui está o ponto mais delicado da aula: carregar uma fonte **leva um tempinho** (ela precisa ser lida de um arquivo e preparada para uso). Se a nossa primeira tela aparecesse **antes** desse carregamento terminar, o usuário veria, por um instante, o texto com a fonte padrão do sistema, e depois ela "pularia" de repente para a Inter — um efeito feio, chamado de "flash" de fonte errada.
+
+Para evitar isso, usamos o hook **`useFonts`** (lembra o que é um hook, da Aula 6? Uma função especial que dá um "superpoder" ao componente — aqui, o poder de saber se as fontes já terminaram de carregar) dentro do nosso `_layout.tsx`, que — como vimos na Aula 8 — é o arquivo que envolve **todas** as telas do app, sendo o lugar perfeito para esse tipo de verificação "antes de tudo":
+
+```tsx
+export default function Layout() {
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  return (
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        contentStyle: { backgroundColor: colors.white },
+      }}
+    />
+  );
+}
+```
+
+Vamos entender cada parte:
+
+- **`useFonts({ ... })`**: recebe um objeto listando quais fontes queremos carregar, e devolve uma lista onde a **primeira posição** (`fontsLoaded`) é um valor de verdadeiro/falso (`true`/`false`), avisando se o carregamento **já terminou**.
+- **`if (!fontsLoaded) { return null; }`**: aqui está a "trava de segurança". Lendo em português: "se as fontes **ainda não** estiverem carregadas, não desenhe **nada** na tela ainda" (`return null` significa "não renderize nada"). Só quando `fontsLoaded` virar `true` é que o código passa dessa linha e finalmente desenha o `<Stack>` com as telas do app.
+
+> 💡 **Analogia:** É como esperar o telão de um cinema realmente acender antes de abrir a cortina. Se a cortina abrisse antes da imagem estar pronta, o público veria um instante de tela preta ou de imagem incompleta. O `if (!fontsLoaded) return null` é a gente garantindo que a "cortina" (as telas do app) só abre depois que a "imagem" (a fonte) já está 100% pronta.
+
+## 6. Centralizando os nomes das fontes em um token: `fontFamily.ts`
+
+Para não precisar escrever o texto `"Inter_700Bold"` toda vez, em cada arquivo, criamos um arquivo de **tokens** para fontes, parecido com o que já fizemos para as cores na Aula 2 — `src/theme/fontFamily.ts`:
+
+```ts
+export const fontFamily = {
+  bold: "Inter_700Bold",
+  medium: "Inter_500Medium",
+  regular: "Inter_400Regular",
+};
+```
+
+E usamos assim, dentro de uma tela:
+
+```tsx
+import { fontFamily } from "@/theme/fontFamily";
+// ...
+<Text style={{ fontFamily: fontFamily.bold, fontSize: 24 }}>
+  Ola, Expo Router 😁
+</Text>
+```
+
+A propriedade **`fontFamily`** no `style` é exatamente igual ao `font-family` do CSS que você já conhece: ela diz "use esta fonte específica para desenhar este texto". Usando o token `fontFamily.bold` em vez do texto `"Inter_700Bold"` direto, ganhamos a mesma vantagem que já vimos com as cores: se um dia decidirmos trocar a fonte do app inteiro, só precisamos mudar esses nomes em **um único lugar** (`fontFamily.ts`), e a mudança se espalha automaticamente para todas as telas que usam `fontFamily.bold`, `fontFamily.medium` ou `fontFamily.regular`.
