@@ -6,12 +6,17 @@ export const styles = StyleSheet.create({
     height: 324,
     paddingHorizontal: 24,
     justifyContent: "flex-end",
+    paddingBottom: 18,
+    gap: 24,
   },
   label: {
     fontSize: 12,
     color: colors.white,
     fontFamily: fontFamily.regular,
-    paddingBottom: 18,
-    gap: 24,
+  },
+  total: {
+    fontSize: 32,
+    color: colors.white,
+    fontFamily: fontFamily.medium,
   },
 });
