@@ -16,7 +16,7 @@ export default function Layout() {
   });
 
   if (!fontsLoaded) {
-    return Loading;
+    return <Loading />;
   }
 
   return (
