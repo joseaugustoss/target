@@ -2,7 +2,7 @@ import { Button } from "@/components/Button";
 import { HomeHeader } from "@/components/HomeHeader";
 import { List } from "@/components/List";
 import { Target } from "@/components/Target";
-import { View } from "react-native";
+import { View, StatusBar } from "react-native";
 import { router } from "expo-router";
 const summary = {
   total: "R$ 2.800,00",
@@ -37,6 +37,7 @@ const targets = [
 export default function Index() {
   return (
     <View style={{ flex: 1 }}>
+      <StatusBar barStyle={"light-content"} />
       <HomeHeader data={summary} />
 
       <List
